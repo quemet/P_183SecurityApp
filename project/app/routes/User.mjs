@@ -1,19 +1,19 @@
 import express from "express"
-import { success } from "./helper.mjs"
+import { success, encryptUsername, decryptUsername, hashPassword } from "./helper.mjs"
 import { getAllUser, getOneUser, createUser, updateUser, connection, deleteUser } from "../db/database.mjs";
-import crypto from "crypto";
 
 const userRouter = express();
-
-var mykey = crypto.createCipher('aes-128-cbc', 'mypassword');
 
 userRouter.get('/', async (req, res) => {
     const message = "Voici la liste des utilisateurs récupéré";
     try {
         const results = await getAllUser(connection);
+        for(let i=0; i < results.length;i++) {
+            decryptUsername(results[i].username, results[i].password)
+        }
         res.json(success(message, results));
     } catch (error) {
-        const message = "Erreur lors de la récupération des utilisateurs";
+        const message = "Erreur lors de la récupération des utilisateurs" + error;
         res.status(500).json({ message });
     }
 });
@@ -24,12 +24,14 @@ userRouter.get("/:id", async (req, res) => {
         const user = await getOneUser(connection, userId);
         if(user.length == 0) {
             const message = `L'utilisateur dont l'id vaut ${userId} n'existe pas`;
-            res.status(404).json({ message });
+            return res.status(404).json({ message });
         }
+        user[0].username = decryptUsername(user[0].username, user[0].password)
         const message = `L'utilisateur dont l'id vaut ${userId} a bien été recupérée`;
         res.json(success(message, user));
     } catch(error) {
         const message = `Erreur lors de la récupération de l'utilisateur dont l'id vaut ${userId}`;
+        console.log(error)
         res.status(500).json({ message });
     } 
 });
@@ -38,11 +40,8 @@ userRouter.post("/", async (req, res) => {
     let json = req.body;
     let result = {};
     try {
-        let username = mykey.update(json.username, 'utf8', 'hex')
-        username += mykey.final('hex');
-
-        let password = mykey.update(json.password, 'utf8', 'hex')
-        password += mykey.final('hex');
+        const password = hashPassword(json);
+        const username = encryptUsername(json, password);
 
         result = { username: username, password: password, isAdmin: json.isAdmin }
 
@@ -55,6 +54,7 @@ userRouter.post("/", async (req, res) => {
         res.json(success(message, result));
     } catch(error) {
         const message = "Erreur lors de la création de l'utilisateur";
+        console.log(error)
         res.status(500).json({ message, data: error });
     }
 });
@@ -64,11 +64,8 @@ userRouter.put("/:id", async (req, res) => {
     let userId = req.params.id;
     let result = {};
     try {
-        let username = mykey.update(json.username, 'utf8', 'hex')
-        username += mykey.final('hex');
-
-        let password = mykey.update(json.password, 'utf8', 'hex')
-        password += mykey.final('hex');
+        const password = hashPassword(json);
+        const username = encryptUsername(json, password);
 
         result = { username: username, password: password, isAdmin: json.isAdmin }
 
@@ -92,16 +89,15 @@ userRouter.delete("/:id", async (req, res) => {
         user = await getOneUser(connection, userId);
         if(user.length == 0) {
             const message = `L'utilisateur dont l'id vaut ${userId} n'existe pas`;
-            res.status(404).json({ message });
+            return res.status(404).json({ message });
         }
-        const message = `L'utilisateur dont l'id vaut ${userId} a bien été recupérée`;
-        res.json(success(message, user));
     } catch(error) {
         const message = `Erreur lors de la récupération de l'utilisateur dont l'id vaut ${userId}`;
         res.status(500).json({ message });
     }
 
     try {
+
         deleteUser(userId);
 
         const message = `L'utilisateur ${user.username} a bien été supprimée`;

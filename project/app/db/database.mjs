@@ -1,12 +1,19 @@
 import mysql from "mysql2/promise";
 
-const connection = await mysql.createConnection({
-    host: "172.19.0.3",
-    user: "root",
-    password: "root",
-    port: "3306",
-    database: "db_securityapp"
-});
+let connection;
+
+try {
+    connection = await mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "root",
+        port: "6033",
+        database: "db_securityapp"
+    });
+} catch(ex) {
+    console.log(ex)
+    throw new Error("Cannot connect to the database. Please try again later")
+}
 
 const getAllUser = async (connection) => {
     try {
@@ -28,9 +35,19 @@ const getOneUser = async (connection, userId) => {
     }
 }
 
+const getOneUserWithName = async (connection, username) => {
+    try {
+        const [results] = await connection.query(`SELECT * FROM users WHERE username=?`, [username]);
+        return results;
+    } catch (ex) {
+        console.log(ex)
+        throw new Error("Cannot find the user where the name is " + username + ". Please try again later")
+    }
+}
+
 const createUser = async (connection, data) => {
     try {
-        await connection.query(`INSERT INTO users(username, password, isAdmin) VALUES('?', '?', ?);`, [data.username, data.password, data.isAdmin]);
+        await connection.query(`INSERT INTO users(username, password, isAdmin) VALUES(?, ?, ?);`, [data.username, data.password, data.isAdmin]);
     } catch (ex) {
         console.log(ex);
         throw new Error("Cannot create the user asked please try again later")
@@ -55,4 +72,4 @@ const deleteUser = async (connection, userId) => {
     }
 }
 
-export { getAllUser, getOneUser, createUser, updateUser, deleteUser, connection }
+export { getAllUser, getOneUser, getOneUserWithName, createUser, updateUser, deleteUser, connection }
