@@ -1,10 +1,11 @@
 import express from "express"
 import { success, encryptUsername, decryptUsername, hashPassword } from "./helper.mjs"
 import { getAllUser, getOneUser, createUser, updateUser, connection, deleteUser } from "../db/database.mjs";
+import { auth } from "../auth/auth.mjs";
 
 const userRouter = express();
 
-userRouter.get('/', async (req, res) => {
+userRouter.get('/', auth, async (req, res) => {
     const message = "Voici la liste des utilisateurs récupéré";
     try {
         const results = await getAllUser(connection);
@@ -18,7 +19,7 @@ userRouter.get('/', async (req, res) => {
     }
 });
 
-userRouter.get("/:id", async (req, res) => {
+userRouter.get("/:id", auth, async (req, res) => {
     const userId = req.params.id;
     try {
         const user = await getOneUser(connection, userId);
@@ -36,7 +37,7 @@ userRouter.get("/:id", async (req, res) => {
     } 
 });
 
-userRouter.post("/", async (req, res) => {
+userRouter.post("/", auth, async (req, res) => {
     let json = req.body;
     let result = {};
     try {
@@ -59,7 +60,7 @@ userRouter.post("/", async (req, res) => {
     }
 });
 
-userRouter.put("/:id", async (req, res) => {
+userRouter.put("/:id", auth, async (req, res) => {
     let json = req.body;
     let userId = req.params.id;
     let result = {};
@@ -82,7 +83,7 @@ userRouter.put("/:id", async (req, res) => {
     }
 });
 
-userRouter.delete("/:id", async (req, res) => {
+userRouter.delete("/:id", auth, async (req, res) => {
     const userId = req.params.id;
     let user;
     try {
