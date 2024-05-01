@@ -18,4 +18,5 @@
 
 ## Sommaire
 
-[Route pour les utilisateurs]()
+[Route pour les utilisateurs](https://github.com/quemet/P_183SecurityApp/blob/main/project/app/routes/User.mjs)
+[Function utilitaires](https://github.com/quemet/P_183SecurityApp/blob/main/project/app/routes/helper.mjs)
