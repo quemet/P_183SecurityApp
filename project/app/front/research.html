@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche</title>
+</head>
+<body>
+    <script>
+        async function fetchAPI() {
+            let username = document.getElementById("research").value;
+            let arr = await fetch(`http://localhost:443/users/?username=${username}`, {
+                mode: "no-cors",
+            });
+
+            console.log(arr)
+        }
+    </script>
+
+    <form>
+        <input type="search" name="research" id="research" />
+        <input type="button" value="Submit" onclick="fetchAPI()" >
+    </form>
+</body>
+</html>

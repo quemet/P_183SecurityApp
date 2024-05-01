@@ -25,6 +25,16 @@ const getAllUser = async (connection) => {
     }
 }
 
+const getAllUserLike = async (connection, username) => {
+    try {
+        const [results] = await connection.query("SELECT * FROM users WHERE username LIKE ?;", [username]);
+        return results;
+    } catch(ex) {
+        console.log(ex)
+        throw new Error("Cannot get all the users with username " + username + ". Please try again later.")
+    }
+}
+
 const getOneUser = async (connection, userId) => {
     try {
         const [results] = await connection.query(`SELECT * FROM users WHERE id=?;`, [userId]);
@@ -65,11 +75,11 @@ const updateUser = async (connection, data, userId) => {
 
 const deleteUser = async (connection, userId) => {
     try {
-        await connection.query(`DELETE FROM users WHERE userId=?`, [userId]);
+        return await connection.query(`DELETE FROM users WHERE id=?;`, [userId]);
     } catch (ex) {
         console.log(ex)
-        throw new Error("Cannot delete the user asked please try again later")
+        return new Error("Cannot delete the user asked please try again later")
     }
 }
 
-export { getAllUser, getOneUser, getOneUserWithName, createUser, updateUser, deleteUser, connection }
+export { getAllUser, getAllUserLike, getOneUser, getOneUserWithName, createUser, updateUser, deleteUser, connection }

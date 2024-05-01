@@ -3,7 +3,6 @@ import { privateKey } from "./private_key.mjs";
 
 const auth = (req, res, next) => {
   const authorizationHeader = req.headers.authorization;
-  console.log(authorizationHeader);
 
   if (!authorizationHeader) {
     const message = `Vous n'avez pas fourni de jeton d'authentification. AJoutez-en dans l'en-tête de la requête.`;
@@ -23,6 +22,18 @@ const auth = (req, res, next) => {
           const message = `L'identifiant de l'utilisateur est invalide`;
           return res.status(401).json({ message });
         } else {
+          const isAdmin = decodedToken.admin
+          if(!isAdmin) {
+            if(req.method == "GET" && req.params) {
+              if(req.params.id != userId) {
+                const message = `L'utilisateur n'est pas autorisé à accéder à cette ressource.`;
+                return res.status(401).json({ message, data: error });
+              }
+            } else {
+              const message = `L'utilisateur n'est pas autorisé à accéder à cette ressource.`;
+              return res.status(401).json({ message, data: error });
+            }
+          }
           next();
         }
       }
