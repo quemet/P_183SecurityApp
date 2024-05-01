@@ -19,4 +19,8 @@
 ## Sommaire
 
 [Route pour les utilisateurs](https://github.com/quemet/P_183SecurityApp/blob/main/project/app/routes/User.mjs)
-[Function utilitaires](https://github.com/quemet/P_183SecurityApp/blob/main/project/app/routes/helper.mjs)
+[Fonction utilitaires](https://github.com/quemet/P_183SecurityApp/blob/main/project/app/routes/helper.mjs)
+[Creation du token](https://github.com/quemet/P_183SecurityApp/blob/main/project/app/routes/Login.mjs)
+[Traitement de la base de données](https://github.com/quemet/P_183SecurityApp/blob/main/project/app/db/database.mjs)
+[Traitement de l'authentifcation](https://github.com/quemet/P_183SecurityApp/blob/main/project/app/auth/auth.mjs)
+[Fichier du serveur](https://github.com/quemet/P_183SecurityApp/blob/main/project/app/server.mjs)
