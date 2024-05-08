@@ -704,3 +704,15 @@ app.use('/login', loginRouteur);
 J'ai trouvé ce projet intéressant car il m'apprit à passer de HTTP à HTTPS. 
 Il y a aussi le fait de faire plus nous-même comme utiliser crypto plutôt bcrypt ou utiliser mysql2 plutôt que sequelize. 
 Cela permet de coder une API REST sans trop de librairie et de faire la sécurité nous-même.
+
+## Webographie
+
+### Séquence 1
+### Séquence 2
+### Séquence 3
+### Séquence 4
+### Séquence 5
+### Séquence 6
+### Séquence 7
+### Séquence 8
+### Séquence 9
