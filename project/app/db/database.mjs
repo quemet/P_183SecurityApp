@@ -7,9 +7,16 @@ try {
         host: "localhost",
         user: "root",
         password: "root",
-        port: "6033",
-        database: "db_securityapp"
+        port: "3306",
+        database: "db_securityapp" 
     });
+    /*connection = await mysql.createConnection({
+        host: "172.24.0.3",
+        user: "root",
+        password: "root",
+        port: "3306",
+        database: "db_securityapp"
+    });*/
 } catch(ex) {
     console.log(ex)
     throw new Error("Cannot connect to the database. Please try again later")
