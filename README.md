@@ -183,7 +183,7 @@ OpenSSL nous pose les questions suivantes :
 
 J'ai récupéré les deux fichiers server.key et server.cert. 
 J'ai créer un dossier qui s'appelle cert et j'ai mis les deux fichiers dedans.
-Pour l'utilisation, aller voir [Utilisation des certif](###Explication des routes)
+Pour l'utilisation, aller voir dans le serveur [Fichier serveur](./project/app/server.mjs)
 
 ## Explication du code
 
@@ -818,7 +818,7 @@ const auth = (req, res, next) => {
 export { auth }
 ```
 
-### Explication du fichier du serveur
+### Explication du fichier du serveur {#server}
 
 ```js
 
