@@ -51,7 +51,8 @@ Cliquer sur Oui.
 
 ![Etape n°4](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_04.png)
 
-Une Fenêtre s'ouvre puis cliqué sur continuer. Cette fenêtre parle des licences pour Git.
+Une Fenêtre s'ouvre puis cliqué sur continuer. 
+Cette fenêtre parle des licences pour Git.
 
 ![Etape n°5](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_05.png)
 
@@ -59,7 +60,8 @@ Une nouvelle fenêtre apparaît. Celle ci nous demande ou mettre le dossier ou s
 
 ![Etape n°6](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_06.png)
 
-Cette fenêtre nous demande les composants à installer avec Git. Laisser ceux par défaut.
+Cette fenêtre nous demande les composants à installer avec Git. 
+Laisser ceux par défaut.
 
 ![Etape n°7](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_07.png)
 
@@ -70,11 +72,31 @@ Cette fenêtre demande pour faire un raccourci sur Git.
 Cette fenêtre demande l'éditeur de texte par défaut de Git.
 
 ![Etape n°9](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_09.png)
+
+Cette fenêtre demande le nom de la branche initial quand un repo Git est crée.
+
 ![Etape n°10](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_10.png)
+
+Cette fenêtre demande le chemin d'environment. Il ne faut pas toucher sur cette fenêtre.
+
 ![Etape n°11](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_11.png)
+
+Cette fenêtre demande le protocole SSL. Ne touche pas non plus à cette fenêtre.
+
 ![Etape n°12](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_12.png)
+
+Cette fenêtre demande pour le protocole HTTPS. Ne touche pas non plus à cette fenêtre.
+
 ![Etape n°13](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_13.png)
+
+Cette fenêtre demande comment quitte est censé gérer les fin de fichiers.
+Celon les OS cela peut changer. 
+On laisse la valeur par défaut.
+
 ![Etape n°14](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_14.png)
+
+
+
 ![Etape n°15](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_15.png)
 ![Etape n°16](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_16.png)
 ![Etape n°17](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_17.png)
@@ -142,6 +164,26 @@ npm i crypto --save
 ```
 
 ### Configuration de OpenSSL
+
+Pour configurer OpenSSL nous avons utilisé la commande suivante :
+
+```sh
+openssl req -nodes -new -x509 -keyout server.key -out server.cert
+```
+
+OpenSSL nous pose les questions suivantes :
+
+* Country Name (2 letter code) [AU]: CH
+* State or Province Name (full name) [Some-State]:Vaud
+* Locality Name (eg, city) []:Lausanne
+* Organization Name (eg, company) [Internet Widgits Pty Ltd]:ETML
+* Organizational Unit Name (eg, section) []:ETML
+* Common Name (e.g. server FQDN or YOUR name) []:Quentin
+* Email Address []:quentin.metroz@eduvaud.ch
+
+J'ai récupéré les deux fichiers server.key et server.cert. 
+J'ai créer un dossier qui s'appelle cert et j'ai mis les deux fichiers dedans.
+Pour l'utilisation, aller voir [Utilisation des certif](./README.MD/'###Explication des routes')
 
 ## Explication du code
 
