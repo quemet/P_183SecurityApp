@@ -34,6 +34,55 @@
 
 ### Installation de Git
 
+Rendez-vous ur l'url suivante : [Official Git WebSite](https://git-scm.com).
+
+![Etape n°1](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_01.png)
+
+Cliquer sur le bouton Download for windows en Bleu.
+
+![Etape n°2](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_02.png)
+
+Soit sur lien de 64 ou de 32 suivant votre machine.
+
+![Etape n°3](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_03.png)
+
+Quand l'installtion est fini, cliquer sur Ouvrir le fichier est cet fenêtre devrait apparaître.  
+Cliquer sur Oui.
+
+![Etape n°4](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_04.png)
+
+Une Fenêtre s'ouvre puis cliqué sur continuer. Cette fenêtre parle des licences pour Git.
+
+![Etape n°5](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_05.png)
+
+Une nouvelle fenêtre apparaît. Celle ci nous demande ou mettre le dossier ou sera mis l'app.
+
+![Etape n°6](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_06.png)
+
+Cette fenêtre nous demande les composants à installer avec Git. Laisser ceux par défaut.
+
+![Etape n°7](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_07.png)
+
+Cette fenêtre demande pour faire un raccourci sur Git.
+
+![Etape n°8](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_08.png)
+
+Cette fenêtre demande l'éditeur de texte par défaut de Git.
+
+![Etape n°9](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_09.png)
+![Etape n°10](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_10.png)
+![Etape n°11](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_11.png)
+![Etape n°12](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_12.png)
+![Etape n°13](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_13.png)
+![Etape n°14](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_14.png)
+![Etape n°15](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_15.png)
+![Etape n°16](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_16.png)
+![Etape n°17](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_17.png)
+![Etape n°18](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_18.png)
+![Etape n°19](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_19.png)
+![Etape n°20](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_20.png)
+![Etape n°21](https://github.com/quemet/P_183SecurityApp/blob/main/Image/Git/Screen_21.png)
+
 ### Installation de Visual Studio Code
 
 ### Installation des containeurs
@@ -91,6 +140,8 @@ Executer cette commande :
 ```sh
 npm i crypto --save
 ```
+
+### Configuration de OpenSSL
 
 ## Explication du code
 
