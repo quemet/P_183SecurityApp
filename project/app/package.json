@@ -8,6 +8,7 @@
     "start": "nodemon server.mjs -L"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.19.1",
     "http-server": "^14.1.1",
     "jsonwebtoken": "^9.0.2",

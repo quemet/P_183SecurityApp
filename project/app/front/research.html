@@ -9,8 +9,12 @@
     <script>
         async function fetchAPI() {
             let username = document.getElementById("research").value;
-            let arr = await fetch(`http://localhost:443/users/?username=${username}`, {
-                mode: "no-cors",
+            let arr = await fetch(`https://localhost:443/users/?username=${username}`, {
+                method: 'GET',
+                headers: {
+                    "Content-Type": 'application/json',
+                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImFkbWluIjoxLCJpYXQiOjE3MTU3NjQ4NDIsImV4cCI6MTc0NzMyMjQ0Mn0.nI-5pzz1CWpQld1aXai0JPhYRnRxEEI7lokOhw0lqEE"
+                },
             });
 
             console.log(arr)

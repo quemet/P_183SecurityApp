@@ -7,8 +7,8 @@ try {
         host: "localhost",
         user: "root",
         password: "root",
-        port: "3306",
-        database: "db_securityapp" 
+        port: "6033",
+        database: "db_security_app" 
     });
     /*connection = await mysql.createConnection({
         host: "172.18.0.2",
