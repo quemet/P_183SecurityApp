@@ -28,6 +28,34 @@
 * [Rapport](https://github.com/quemet/P_183SecurityApp/blob/main/Document/Rapport-QuentinMétroz.docx)
 * [Journal de travail](https://github.com/quemet/P_183SecurityApp/blob/main/Document/JNLTRAV-QuentinMétroz.xlsm)
 
+## Configurer l'environment
+
+### Installation de Docker
+
+### Installation des containeurs
+
+### Installation de Node
+
+Si vous n'avez pas encore Node.
+
+* Cliquer sur ce lien -> [Official Node Web Site](https://nodejs.org/en).  
+* Installer la version LTS de Node.  
+* Suivez le téléchargement avec attention.
+
+### Installation de Nodemon
+
+Mettez vous à la hauteur du package.json dans
+
+### Installation de express
+
+### Installtion de JsonWebToken
+
+### Installation de Crypto
+
+### Installation de Git
+
+### Installation de Visual Studio Code
+
 ## Explication du code
 
 ### Explication des routes
