@@ -32,29 +32,65 @@
 
 ### Installation de Docker
 
-### Installation des containeurs
-
-### Installation de Node
-
-Si vous n'avez pas encore Node.
-
-* Cliquer sur ce lien -> [Official Node Web Site](https://nodejs.org/en).  
-* Installer la version LTS de Node.  
-* Suivez le téléchargement avec attention.
-
-### Installation de Nodemon
-
-Mettez vous à la hauteur du package.json dans
-
-### Installation de express
-
-### Installtion de JsonWebToken
-
-### Installation de Crypto
-
 ### Installation de Git
 
 ### Installation de Visual Studio Code
+
+### Installation des containeurs
+
+Pour installer les containeurs.  
+1. Cloner le répertoire actuelle avec la commande suivante :
+   ```sh
+   git clone https://github.com/quemet/P_183SecurityApp.git
+   ```
+2. Rendez vous dans le répertoire ou est mis le docker-compose :
+   ```sh
+   cd P_183SecurityApp/project
+   ```
+3. Executer la commande suivante pour créer les containeurs
+   ```sh
+   docker-compose up -d
+   ```
+
+### Installation de Node
+
+
+
+### Installation de Nodemon
+
+Mettez vous à la hauteur du package.json dans P_183SecurityApp/project/app.
+Executer cette commande :
+
+```sh
+npm i nodemon --save-dev
+```
+
+### Installation de express
+
+Mettez vous à la hauteur du package.json dans P_183SecurityApp/project/app.
+Executer cette commande :
+
+```sh
+npm i express --save
+```
+
+### Installtion de JsonWebToken
+
+Mettez vous à la hauteur du package.json dans P_183SecurityApp/project/app.
+Executer cette commande :
+
+```sh
+npm i jsonwebtoken --save
+```
+
+### Installation de Crypto
+
+Mettez vous à la hauteur du package.json dans P_183SecurityApp/project/app.
+Executer cette commande :
+
+```sh
+npm i crypto --save
+```
 
 ## Explication du code
 
