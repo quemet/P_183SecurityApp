@@ -803,53 +803,53 @@ app.use('/login', loginRouteur);
 <html lang="fr">
 <!-- Défini la balise head -->
 <head>
-<!-- Défini UTF-8 -->
+    <!-- Défini UTF-8 -->
     <meta charset="UTF-8">
-<!-- Défini pour le responsive design -->
+     <!-- Défini pour le responsive design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Défini le titre de la page web-->
+     <!-- Défini le titre de la page web-->
     <title>Recherche</title>
 </head>
 <!-- Défini la balise body -->
 <body>
-<!-- Défini la balise script -->
+    <!-- Défini la balise script -->
     <script>
-// Défini une fonction qui a pour rôle de prendre le données avec l'api
+        // Défini une fonction qui a pour rôle de prendre le données avec l'api
         async function fetchAPI() {
-// Récupére le username
+            // Récupére le username
             let username = document.getElementById("search").value;
-// Récupére les données depuis l'API avec le username passé par l'utilisateur
+            // Récupére les données depuis l'API avec le username passé par l'utilisateur
             let arr = await fetch(`http://localhost:3000/users/?username="${username}"`, {
-// Défini le headers de la requête
+                // Défini le headers de la requête
                 headers: {
                     "Content-Type": 'application/json',
                     "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImFkbWluIjoxLCJpYXQiOjE3MTU3NjQ4NDIsImV4cCI6MTc0NzMyMjQ0Mn0.nI-5pzz1CWpQld1aXai0JPhYRnRxEEI7lokOhw0lqEE"
                 },
-// Traitement de données avec ce qu'on reçois de l'api
+            // Traitement de données avec ce qu'on reçois de l'api
             }).then((response) => response.json()).then((data) => data).catch(error => console.error('Error:', error));
 
-// On défini les données dans un tableau
+            // On défini les données dans un tableau
             let users = arr.data
 
-// On récupére le body avec le DOM querySelctor
+            // On récupére le body avec le DOM querySelctor
             let body = document.querySelector("body")
 
-// On trouve tout les ul de notre page HTML
+            // On trouve tout les ul de notre page HTML
             let allUl = document.querySelectorAll("ul")
-// On trouve tout les p de notre page HTML
+            // On trouve tout les p de notre page HTML
             let allP = document.querySelectorAll("p")
 
-// On boucle sur le tableau des ul et on les supprimme tous
+            // On boucle sur le tableau des ul et on les supprimme tous
             allUl.forEach((ul) => {
                 body.removeChild(ul)
             });
 
-// On boucle sur le tableau des p et on les supprimme tous
+            // On boucle sur le tableau des p et on les supprimme tous
             allP.forEach((p) => {
                 body.removeChild(p)
             });
 
-// Si l'api nous retourne vide alors on evoie un message pour l'utilisateur
+            // Si l'api nous retourne vide alors on evoie un message pour l'utilisateur
             if(users.length == 0) {
                 let p = document.createElement("p")
                 p.textContent = "Aucun utilisateur ne correspond à ces critères"
@@ -858,12 +858,13 @@ app.use('/login', loginRouteur);
                 return
             }
 
-// On défini un nouvelle ul
+            // On défini un nouvelle ul
             let ul = document.createElement("ul")
-// On l'ajoute au body
+
+            // On l'ajoute au body
             body.appendChild(ul)
 
-// On boucle sur le tableau renvoié par l'api et on inscrit dans des li les nom des utilisateurs
+            // On boucle sur le tableau renvoié par l'api et on inscrit dans des li les nom des utilisateurs
             users.forEach((user) => {
                 let li = document.createElement("li")
                 li.textContent = user.username
@@ -872,11 +873,12 @@ app.use('/login', loginRouteur);
         }
     </script>
 
-<!-- On initiliase un form pour y mettre notre recherche et un button -->
+    <!-- On initiliase un form pour y mettre notre recherche et un button -->
     <form>
-<!-- On initialise un input de type recherche ou l'utilisateur mettrea le username -->
+        <!-- On initialise un input de type recherche ou l'utilisateur mettrea le username -->
         <input type="search" name="search" id="search" />
-<!-- On initialise un input de type button pour submit la réponse de l'utilisateur-->
+
+        <!-- On initialise un input de type button pour submit la réponse de l'utilisateur-->
         <input type="button" value="Submit" onclick="fetchAPI()" >
     </form>
 </body>
