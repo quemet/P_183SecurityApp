@@ -93,7 +93,7 @@ Executer ces commande :
 Pour l'installer :
 
 ```bash
-npm i http-server -g
+npm i http-server -g --save-dev
 ```
 
 Pour lancer le server http :
