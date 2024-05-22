@@ -34,7 +34,8 @@ const getAllUser = async (connection) => {
 
 const getAllUserLike = async (connection, username) => {
     try {
-        const [results] = await connection.query("SELECT * FROM users WHERE username LIKE ?;", [username]);
+        username = '"' + "%" + username + "%" + '"';
+        const [results] = await connection.query('SELECT * FROM users WHERE username LIKE ' + username + ";");
         return results;
     } catch(ex) {
         console.log(ex)

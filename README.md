@@ -93,12 +93,12 @@ openssl req -nodes -new -x509 -keyout server.key -out server.cert
 OpenSSL nous pose les questions suivantes :
 
 * Country Name (2 letter code) [AU]: CH
-* State or Province Name (full name) [Some-State]:Vaud
-* Locality Name (eg, city) []:Lausanne
-* Organization Name (eg, company) [Internet Widgits Pty Ltd]:ETML
-* Organizational Unit Name (eg, section) []:ETML
-* Common Name (e.g. server FQDN or YOUR name) []:Quentin
-* Email Address []:quentin.metroz@eduvaud.ch
+* State or Province Name (full name) [Some-State]: Vaud
+* Locality Name (eg, city) []: Lausanne
+* Organization Name (eg, company) [Internet Widgits Pty Ltd]: ETML
+* Organizational Unit Name (eg, section) []: ETML
+* Common Name (e.g. server FQDN or YOUR name) []: Quentin
+* Email Address []: quentin.metroz@eduvaud.ch
 
 J'ai récupéré les deux fichiers server.key et server.cert. 
 J'ai créer un dossier qui s'appelle cert et j'ai mis les deux fichiers dedans.

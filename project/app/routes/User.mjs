@@ -7,7 +7,11 @@ const userRouter = express();
 
 userRouter.get('/', auth, async (req, res) => {
     if (req.query.username) {
-        if (req.query.name.length < 2) {
+        let username = req.query.username
+        username = (req.query.username[0] == '"') ? req.query.username.substring(1) : req.query.username
+        username = (username[username.length - 1] == '"') ? username.substring(0, username.length - 1): username
+        req.query.username = username
+        if (req.query.username.length < 2) {
           const message = `Le terme de la recherche doit contenir au moins 2 caractères`;
           return res.status(400).json({ message });
         }
@@ -17,7 +21,7 @@ userRouter.get('/', auth, async (req, res) => {
         }
         const message = "Voici la liste des utilisateurs récupéré";
         const results = await getAllUserLike(connection, req.query.username);
-        res.json(success(message, results));
+        return res.status(200).json({ "data": results, "message": message });
     }
     const message = "Voici la liste des utilisateurs récupéré";
     try {
