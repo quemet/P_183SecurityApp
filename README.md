@@ -738,7 +738,7 @@ const auth = (req, res, next) => {
 export { auth }
 ```
 
-### Explication du fichier du serveur {#server}
+### Explication du fichier du serveur
 
 ```js
 
