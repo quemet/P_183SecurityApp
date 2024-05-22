@@ -84,6 +84,23 @@ Executer cette commande :
 npm i crypto --save
 ```
 
+### Installation de http-server
+
+Mettez vous à la hauteur du package.json dans P_183SecurityApp/project/app.
+Executer ces commande :
+
+Pour l'installer :
+
+```bash
+npm i http-server -g
+```
+
+Pour lancer le server http :
+
+```bash
+npx http-server -a 127.0.0.1 -p 5000 --cors
+```
+
 ### Configuration de OpenSSL
 
 Pour configurer OpenSSL nous avons utilisé la commande suivante :
