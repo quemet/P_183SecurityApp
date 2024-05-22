@@ -27,7 +27,8 @@
 * [Cahier des charges](https://github.com/quemet/P_183SecurityApp/blob/main/Document/P_App-Webstore.pdf)
 * [Rapport](https://github.com/quemet/P_183SecurityApp/blob/main/Document/Rapport-QuentinMétroz.docx)
 * [Journal de travail](https://github.com/quemet/P_183SecurityApp/blob/main/Document/JNLTRAV-QuentinMétroz.xlsm)
-* [Présentation]()
+* [Présentation](https://github.com/quemet/P_183SecurityApp/blob/main/Document/Presentation-QuentinMetroz.pptx)
+* [HTMl pour la recherche](https://github.com/quemet/P_183SecurityApp/blob/main/project/app/front/research.html)
 
 ## Configurer l'environment
 
