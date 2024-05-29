@@ -800,12 +800,15 @@ app.use('/login', loginRouteur);
 
 ```vue
 <template>
+  <!-- balise main ppur le from -->
   <main>
+    <!-- From pour récupérer le username -->
     <form @submit.prevent="onSubmit">
       <input type="search" name="search" id="search" v-model="username" />
       <input type="submit" value="Submit" />
     </form>
 
+    <!-- liste unordonnée pour display les usernames -->
     <ul>
       <li v-for="user in users" :key="user.id">{{ user.username }}</li>
     </ul>
@@ -813,16 +816,22 @@ app.use('/login', loginRouteur);
 </template>
 
 <script setup>
+// import ref
 import { ref } from 'vue'
 
+// username rentrer dans le input de recherche
 let username = ref(null)
+// users renvoyé par l'API
 let users = ref(null)
+// Permet de gérer le submit de la page
 async function onSubmit() {
+  // Si il est vide on emmet une erruer
   if (username == '') {
     alert('Veuillez entrer un username')
     return
   }
 
+  // fetch l'api
   await fetch(`http://localhost:3000/users/?username=${username.value}`, {
     headers: {
       'Content-Type': 'application/json',
@@ -833,7 +842,7 @@ async function onSubmit() {
     .then((response) => response.json())
     .then((data) => users.value = data.data)
     .catch((error) => console.error('Error:', error))
-
+  // Remet la valeur de username à vide
   username.value = ''
 }
 </script>
